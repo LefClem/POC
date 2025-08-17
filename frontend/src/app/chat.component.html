@@ -1,0 +1,21 @@
+<div class="chat-container">
+  <div class="header">
+    <h3>Chat POC</h3>
+    <select [(ngModel)]="type" class="type-selector">
+      <option value="CLIENT">Client</option>
+      <option value="SUPPORT">Support</option>
+    </select>
+  </div>
+  
+  <div class="messages">
+    <div *ngFor="let msg of messages" [ngClass]="{'me': msg.userId === userId, 'other': msg.userId !== userId}">
+      <span class="msg-type">{{msg.type}}</span>
+      <span class="msg-content">{{msg.content}}</span>
+    </div>
+  </div>
+  
+  <div class="input-row">
+    <input [(ngModel)]="newMessage" (keyup.enter)="send()" placeholder="Votre message..." />
+    <button (click)="send()">Envoyer</button>
+  </div>
+</div>
