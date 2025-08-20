@@ -9,8 +9,13 @@
   
   <div class="messages">
     <div *ngFor="let msg of messages" [ngClass]="{'me': msg.userId === userId, 'other': msg.userId !== userId}">
-      <span class="msg-type">{{msg.type}}</span>
-      <span class="msg-content">{{msg.content}}</span>
+      <div>
+        <span class="msg-type">{{msg.type}}</span>
+        <span class="msg-content">{{msg.content}}</span>
+      </div>
+      <div>
+        <div class="msg-type msg-date">{{msg.sendingDate | date:'short'}}</div>
+      </div>
     </div>
   </div>
   

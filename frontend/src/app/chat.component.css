@@ -67,6 +67,11 @@
   color: #333;
 }
 
+.msg-date {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .input-row {
   display: flex;
   gap: 8px;

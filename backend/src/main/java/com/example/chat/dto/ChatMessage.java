@@ -1,6 +1,9 @@
 package com.example.chat.dto;
 
 import com.example.chat.model.ConversationType;
+
+import java.util.Date;
+
 import com.example.chat.model.ConversationStatus;
 
 public class ChatMessage {
@@ -8,6 +11,7 @@ public class ChatMessage {
     private ConversationType type;
     private ConversationStatus status;
     private Integer userId;
+    private Date sendingDate;
 
     // Constructeur par défaut
     public ChatMessage() {
@@ -30,6 +34,10 @@ public class ChatMessage {
         return userId;
     }
 
+    public Date getSendingDate() {
+        return sendingDate;
+    }
+
     // Setters
     public void setContent(String content) {
         this.content = content;
@@ -47,13 +55,17 @@ public class ChatMessage {
         this.userId = userId;
     }
 
+    public void setSendingDate(Date sendingDate) {
+        this.sendingDate = sendingDate;
+    }
+
     @Override
     public String toString() {
         return "ChatMessage{" +
                 "content='" + content + '\'' +
                 ", type=" + type +
                 ", status=" + status +
-                ", userId=" + userId +
+                ", userId=" + userId + ", SendingDate=" + sendingDate +
                 '}';
     }
 }

@@ -1,42 +1,48 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ChatMessage, ChatService } from './chat.service';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
+import { ChatMessage, ChatService } from "./chat.service";
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+	selector: "app-chat",
+	templateUrl: "./chat.component.html",
+	styleUrls: ["./chat.component.css"],
 })
 export class ChatComponent implements OnInit, OnDestroy {
-  messages: ChatMessage[] = [];
-  newMessage = '';
-  userId = 1; // Pour le POC, id fixe
-  type: 'CLIENT' | 'SUPPORT' = 'CLIENT';
-  private sub?: Subscription;
+	messages: ChatMessage[] = [];
+	newMessage = "";
+	type: "CLIENT" | "SUPPORT" = "CLIENT";
+	private sub?: Subscription;
 
-  constructor(private chatService: ChatService) {}
+	constructor(private chatService: ChatService) {}
 
-  ngOnInit(): void {
-    this.chatService.connect();
-    this.sub = this.chatService.getMessages().subscribe(msg => {
-      this.messages.push(msg);
-    });
-  }
+	get userId(): number {
+		return this.type === "CLIENT" ? 1 : 2;
+	}
 
-  ngOnDestroy(): void {
-    this.sub?.unsubscribe();
-  }
+	ngOnInit(): void {
+		this.chatService.connect();
+		this.sub = this.chatService.getMessages().subscribe((msg) => {
+			console.log(msg);
+			this.messages.push(msg);
+		});
+	}
 
-  send(): void {
-    if (this.newMessage.trim()) {
-      const msg: ChatMessage = {
-        content: this.newMessage,
-        type: this.type,
-        status: 'SENT',
-        userId: this.userId
-      };
-      this.chatService.send(msg);
-      this.newMessage = '';
-    }
-  }
+	ngOnDestroy(): void {
+		this.sub?.unsubscribe();
+	}
+
+	send(): void {
+		if (this.newMessage.trim()) {
+			const sendingDate = new Date().toISOString();
+			const msg: ChatMessage = {
+				content: this.newMessage,
+				type: this.type,
+				status: "SENT",
+				userId: this.userId,
+				sendingDate: sendingDate,
+			};
+			this.chatService.send(msg);
+			this.newMessage = "";
+		}
+	}
 }
