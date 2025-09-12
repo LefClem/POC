@@ -1,5 +1,0 @@
-com/example/chat/model/ConversationStatus.class
-com/example/chat/dto/ChatMessage.class
-com/example/chat/ChatApplication.class
-com/example/chat/config/WebSocketConfig.class
-com/example/chat/model/ConversationType.class

@@ -1,8 +1,0 @@
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/config/WebSocketConfig.java
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/model/Conversation.java
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/dto/ChatMessage.java
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/ChatApplication.java
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/model/ConversationType.java
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/repository/ConversationRepository.java
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/model/ConversationStatus.java
-/Users/clement/Desktop/POC/backend/src/main/java/com/example/chat/handler/ChatWebSocketHandler.java
