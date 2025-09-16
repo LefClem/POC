@@ -15,7 +15,6 @@ Make sure you have installed:
 
 - [Node.js](https://nodejs.org/) (for the frontend)
 - [Java / JDK](https://adoptium.net/) (for the backend)
-- A relational database (e.g. PostgreSQL, MySQL)
 - [Git](https://git-scm.com/) (to clone the repo)
 
 ---
